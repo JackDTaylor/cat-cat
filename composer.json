@@ -1,0 +1,16 @@
+{
+	"license": "MIT",
+	"autoload": {
+		"psr-4": {"CatSaver\\": "app/CatSaver"}
+	},
+	"require": {
+		"php": "^7.4",
+		"ext-mbstring": "*",
+		"ext-json": "*",
+		"ext-iconv": "*",
+		"jackdtaylor/dpr": "^1.0",
+		"imangazaliev/didom": "^1.16",
+		"opis/closure": "^3.5",
+		"ext-zlib": "*"
+	}
+}

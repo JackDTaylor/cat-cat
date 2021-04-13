@@ -1,0 +1,18 @@
+<!--suppress HtmlUnknownTarget -->
+<h1>Cat_Cat</h1>
+<div>Всего постов: <?=$this->total_count?> (<a href="/@import" target="_blank">загрузить обновления</a>)</div>
+
+<div class="hashtag-lists">
+<?foreach($this->types as $type => $type_label):?>
+	<div class="hashtag-list">
+		<h2><?=$type_label?></h2>
+
+		<?foreach($this->{$type} as $hashtag):?>
+			<div class="list-item hashtag-list-item">
+				<a class="list-item__link" href="<?=$this->getUrlBuilder()->getHashtagUrl($hashtag->hashtag)?>"><?=$hashtag->hashtag?></a>
+				<span class="list-item__count">&ndash; <?=$hashtag->count?></span>
+			</div>
+		<?endforeach?>
+	</div>
+<?endforeach?>
+</div>

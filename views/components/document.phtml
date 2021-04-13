@@ -1,0 +1,22 @@
+<?php
+$size_raw = filesize(APPROOT . '/storage/files/' . $this->document->local_url);
+
+$format_size = function($size) {
+	$units = ['КБ', 'МБ', 'ГБ'];
+	$unit = '';
+
+	while(count($units) > 0 && $size > 1024) {
+		$unit = array_shift($units);
+		$size /= 1024;
+	}
+
+	return number_format($size, 1) . " {$unit}";
+};
+?>
+
+<a target="_blank" class="document" href="<?=$this->getUrlBuilder()->getFileUrl($this->document)?>">
+	<div class="document__info">
+		<div class="document__info__title"><?=htmlspecialchars($this->document->title)?></div>
+		<div class="document__info__size"><?=$format_size($size_raw)?></div>
+	</div>
+</a>

@@ -1,4 +1,6 @@
-/.idea/deployment.xml
-/apikey.txt
-/storage
-/vendor
+.idea/deployment.xml
+apikey.txt
+storage
+vendor
+assets/styles.css
+assets/styles.css.map

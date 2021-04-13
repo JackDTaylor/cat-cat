@@ -1,0 +1,31 @@
+<?php
+use CatFetcher\Model\Post;
+/** @var Post $post */
+?>
+<div class="posts-list">
+<?foreach($this->posts as $post):?>
+	<div class="<?=implode(' ', $post->getListItemClasses())?>">
+		<div class="list-item__header">
+			<div class="list-item__title">
+				<a href="<?=$this->getUrlBuilder()->getPostUrl($post)?>">
+					<?=$post->getListItemTitle($this->articles)?>
+				</a>
+
+				<?if($post->article):?>
+					<span class="list-item__mark--long">(лонг)</span>
+				<?endif?>
+			</div>
+
+			<div class="list-item__date"><?=date('d.m.Y в H:i', $post->date)?></div>
+		</div>
+
+		<?=$this->render('components/hashtags', ['type' => 'authors', 'items' => $post->authors])?>
+
+		<div class="list-item__body">
+			<?=$post->getFirstMeaningfulLine()?>
+		</div>
+
+		<?=$this->render('components/hashtags', ['type' => 'hashtags', 'items' => $post->hashtags])?>
+	</div>
+<?endforeach?>
+</div>

@@ -1,0 +1,60 @@
+<div id="post" class="post">
+	<h1><?=$this->post->getPostTitle()?></h1>
+
+	<?=$this->render('components/hashtags', ['type' => 'authors', 'items' => $this->post->authors])?>
+	<?=$this->render('components/hashtags', ['type' => 'hashtags', 'items' => $this->post->hashtags])?>
+
+	<div>
+		<?=$this->post->getPostTextHtml()?>
+	</div>
+
+	<?if($this->post->repost):?>
+		<h3>Репост</h3>
+		<a class="repost" href="https://vk.com/wall<?=$this->post->repost?>" target="_blank">https://vk.com/wall<?=$this->post->repost?></a>
+	<?endif?>
+
+	<?if($this->post->photos):?>
+		<h3>Фотографии</h3>
+		<div class="photos">
+			<?foreach($this->post->photos as $photo):?>
+				<?=$this->render('components/photo', ['photo' => $photo, 'gallery' => 'post'])?>
+			<?endforeach?>
+		</div>
+	<?endif?>
+
+	<?if($this->post->documents):?>
+		<h3>Документы</h3>
+		<div class="documents">
+			<?foreach($this->post->documents as $document):?>
+				<?=$this->render('components/document', ['document' => $document])?>
+			<?endforeach?>
+		</div>
+	<?endif?>
+
+
+	<?if($this->post->attachments):?>
+		<h3>Остальные вложения</h3>
+		<?foreach($this->post->attachments as $attachment):?>
+			<pre><?=print_r($attachment, true)?></pre>
+		<?endforeach?>
+	<?endif?>
+
+	<?if($this->post->signer):?>
+		<div class="signer">
+			<a href="https://vk.com/id<?=$this->post->signer?>">https://vk.com/id<?=$this->post->signer?></a>
+		</div>
+	<?endif?>
+
+	<?if($this->article):?>
+		<h1>Лонг</h1>
+		<h2><a href="https://vk.com/@<?=$this->article->code?>" target="_blank"><?=$this->article->title?></a></h2>
+
+		<?foreach($this->article->segments ?: [] as $index => $segment):?>
+			<?=$this->render("segments/{$segment->type}", [
+				'segment' => $segment,
+				'index' => $index,
+				'post' => $this->post
+			])?>
+		<?endforeach?>
+	<?endif?>
+</div>

@@ -1,0 +1,17 @@
+{
+	"access_token": "ca0f11b1ca0f11b1ca0f11b1e6ca5cb823cca0fca0f11b190ef2a40b2a9455cf6522a7a",
+	"owner_id": -162479647,
+	"with_reposts": false,
+	"storage": {
+		"files": "/storage/files",
+		"wall": "/storage/wall",
+		"authors": "/storage/authors",
+		"photos": "/storage/photos",
+		"documents": "/storage/documents",
+		"articles": "/storage/articles",
+		"misc": "/storage/misc",
+		"status": "/storage/status",
+		"wall_raw": "/storage/raw/wall",
+		"articles_raw": "/storage/raw/articles"
+	}
+}

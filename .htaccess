@@ -1,0 +1,12 @@
+# HTTP => HTTPS
+RewriteEngine On
+RewriteBase /
+RewriteCond %{HTTPS} off
+RewriteCond %{QUERY_STRING} !^(.*&)?force_http=1(&.*)?$
+RewriteRule (.*) https://%{HTTP_HOST}/$1 [R,L]
+
+# Non-existing URLs
+RewriteBase /
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)$ /index.php [NC,L,QSA]

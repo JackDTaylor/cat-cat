@@ -1,0 +1,29 @@
+<?php
+use CatFetcher\Fetcher;
+
+?>
+<div id="import">
+	<h1>Новый импорт данных</h1>
+	<!--suppress HtmlUnknownTarget -->
+	<form id="importConfigForm" method="post" action="/@import/config">
+		<?foreach(Fetcher::$jobs as $job_id => $Job):?>
+			<div class="job-config">
+				<label class="job-config__label job-config__label--base">
+					<input type="checkbox" name="jobs[<?=$job_id?>][enabled]" <?if(!in_array($job_id, ['members', 'test'])):?>checked<?endif?>>
+					<?=$Job::title()?>
+				</label>
+
+				<label class="job-config__label job-config__label--force-all">
+					Обновить полностью
+					<input type="checkbox" name="jobs[<?=$job_id?>][force_all]">
+				</label>
+			</div>
+		<?endforeach?>
+
+		<div class="actions">
+			<button>Начать импорт</button>
+		</div>
+	</form>
+</div>
+
+<script src="<?=$this->getUrlBuilder()->getAssetsPath()?>/import/import.js" type="text/javascript"></script>

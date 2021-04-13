@@ -1,0 +1,8 @@
+<?php
+$gallery_id = uniqid('segment-');
+?>
+<div class="photos">
+<?foreach($this->segment->items as $photo):?>
+	<?=$this->render('components/photo', ['photo' => $photo, 'gallery' => $gallery_id])?>
+<?endforeach?>
+</div>

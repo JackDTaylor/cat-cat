@@ -1,0 +1,5 @@
+<div class="list-item__hashtags list-item-<?=$this->type?>">
+	<?foreach($this->items as $hashtag):?>
+		<a class="list-item-hashtags__item" href="<?=$this->getUrlBuilder()->getHashtagUrl($hashtag)?>"><?=$hashtag?></a>
+	<?endforeach?>
+</div>

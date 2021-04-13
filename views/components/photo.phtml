@@ -1,0 +1,18 @@
+<?php
+use CatFetcher\Model\Photo;
+
+$url = $this->getUrlBuilder()->getFileUrl(Photo::fromObject($this->photo));
+?>
+<a
+	class="photo"
+	data-fancybox="<?=$this->gallery?>"
+	data-caption="<?=htmlspecialchars($this->photo->text)?>"
+	href="<?=$url?>"
+	target="_blank"
+>
+	<img
+		src="<?=$url?>"
+		alt="<?=htmlspecialchars($this->photo->text)?>"
+		title="<?=htmlspecialchars($this->photo->text)?>"
+	/>
+</a>

@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="ru">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport"
+	      content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title><?=$this->title()?></title>
+	<link rel="stylesheet" href="<?=$this->getUrlBuilder()->getAssetsPath()?>/styles.css">
+	<link rel="stylesheet" href="<?=$this->getUrlBuilder()->getAssetsPath()?>/vendor/jquery.fancybox.min.css" />
+</head>
+<body>
+<div id="wrapper">
+	<?if($this->back_url ?? null):?>
+		<?if($this->back_url === true):?>
+			<a class="back-button" onclick="history.back()"><?=$this->back_title ?? 'Назад'?></a>
+		<?else:?>
+			<a class="back-button" href="<?=$this->back_url ?? '/'?>"><?=$this->back_title ?? 'Назад'?></a>
+		<?endif?>
+	<?endif?>
+
+	<div id="content">
+		<?=$this->content()?>
+	</div>
+</div>
+<script src="<?=$this->getUrlBuilder()->getAssetsPath()?>/vendor/jquery.min.js"></script>
+<script src="<?=$this->getUrlBuilder()->getAssetsPath()?>/vendor/jquery.fancybox.min.js"></script>
+<script src="<?=$this->getUrlBuilder()->getAssetsPath()?>/vendor/masonry.pkgd.min.js"></script>
+<script src="<?=$this->getUrlBuilder()->getAssetsPath()?>/script.js"></script>
+</body>
+</html>

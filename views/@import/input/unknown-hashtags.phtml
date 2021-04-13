@@ -1,0 +1,21 @@
+<div id="import">
+	<h2>Хэштеги авторов</h2>
+	<p>Снимите галочки напротив хештегов, не являющихся хештегами авторов</p>
+
+	<form action="" method="post">
+		<?foreach($this->hashtags as $hashtag):?>
+			<div class="item">
+				<label>
+					<input type="hidden" name="hashtags[<?=htmlspecialchars($hashtag)?>]" value="0">
+					<input type="checkbox" checked name="hashtags[<?=htmlspecialchars($hashtag)?>]" value="1">
+
+					<?=$hashtag?> (<a href="https://vk.com/search?c[section]=statuses&c[q]=<?=urlencode($hashtag)?>" target="_blank">найти посты</a>)
+				</label>
+			</div>
+		<?endforeach?>
+
+		<div class="actions">
+			<button>Сохранить</button>
+		</div>
+	</form>
+</div>

@@ -1,0 +1,147 @@
+@accent-color: #497aab;
+
+#import {
+	.job-config {
+		display: flex;
+		flex-direction: row;
+
+		&:hover {
+			background-color: fade(black, 5%);
+		}
+
+		&__label {
+			padding: 3px 0;
+			cursor: pointer;
+			user-select: none;
+
+			&--base {
+				width: 100%;
+			}
+
+			&--force-all {
+				width: auto;
+				white-space: nowrap;
+			}
+		}
+	}
+
+	.button() {
+		background-color: @accent-color;
+		border: none;
+		color: white;
+		padding: 15px 32px;
+		text-align: center;
+		text-decoration: none;
+		display: inline-block;
+		font-size: 16px;
+
+		&:hover {
+			background-color: darken(@accent-color, 2.5%);
+		}
+		&:active {
+			background-color: darken(@accent-color, 5%);
+		}
+		&:disabled {
+			background-color: #b4b1b3;
+		}
+	}
+
+	button, .button {
+		.button();
+	}
+
+	.actions {
+		display: flex;
+		margin-top: 1em;
+		align-items: center;
+		justify-content: center;
+	}
+
+	.progress {
+		margin-top: 1.5em;
+		margin-bottom: 1em;
+		border: 1px solid #ccc;
+		position: relative;
+
+		&__bar {
+			height: 1em;
+			width: 35px;
+			transition: width .6s ease;
+			display: flex;
+			flex-direction: column;
+			color: white;
+			background-color: @accent-color;
+			min-width: 3px;
+			max-width: 100%;
+		}
+	}
+
+	.message {
+		&__title {
+			margin-bottom: 0;
+		}
+	}
+
+	.progress-description {
+		position: absolute;
+		color: #a8a8a8;
+		top: -1.5em;
+		height: 1.5em;
+		left: 0;
+		right: 0;
+		text-align: center;
+
+		&__item {
+			font-size: 0.75em;
+			vertical-align: text-top;
+
+			&--percentage {
+				&:before { content: '('; }
+				&:after { content: ')'; }
+			}
+		}
+	}
+}
+
+.errors {
+	> h2 {
+		margin-bottom: 0.5em;
+	}
+}
+.error-list {
+	padding: 0.5em;
+	max-height: 23em;
+	overflow-y: auto;
+	margin: 0 -2em -1em -2em;
+
+	&__item {
+		margin-bottom: 0.25em;
+	}
+}
+
+.error {
+	border-left: 3px solid #ab493f;
+	padding: 0.25em 0.5em;
+	color: darken(#ab493f, 20%);
+	background-color: fade(#ab493f, 7.5%);
+	display: flex;
+	flex-direction: row;
+
+	&:hover {
+		background-color: fade(#ab493f, 10%);
+	}
+
+	&__message {
+		width: 100%;
+	}
+
+	&__date {
+		width: auto;
+		color: fade(black, 20%);
+		user-select: none;
+	}
+}
+
+.hidden {
+	display: none !important;
+}
